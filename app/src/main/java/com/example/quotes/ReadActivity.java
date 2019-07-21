@@ -3,6 +3,7 @@ package com.example.quotes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,7 +27,7 @@ public class ReadActivity extends AppCompatActivity {
         authors.add("Gavin Russell Baker");
         quotes.add("If Java had true garbage collection, most programs would delete themselves upon execution.");
         quotes.add( "C++ : Where friends have access to your private members.");
-        mListView = (ListView) findViewById(R.id.listView);
+
 
         Intent addQuoteIntent = getIntent();
         String author = addQuoteIntent.getStringExtra("author");

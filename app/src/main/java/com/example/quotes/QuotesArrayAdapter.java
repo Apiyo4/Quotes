@@ -29,4 +29,5 @@ public class QuotesArrayAdapter extends ArrayAdapter {
     public int getCount(){
         return mAuthors.size();
     }
+
 }
