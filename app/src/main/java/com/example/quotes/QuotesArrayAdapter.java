@@ -3,13 +3,17 @@ package com.example.quotes;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
+import java.util.ArrayList;
+
+
 public class QuotesArrayAdapter extends ArrayAdapter {
     private Context mContext;
-    private String[] mAuthors;
-    private String[] mQuotes;
+    private ArrayList<String> mAuthors = new ArrayList<String>();
+    private ArrayList<String> mQuotes = new ArrayList<String>();
 
 
-    public QuotesArrayAdapter(Context mContext, int resource, String[] mAuthors, String[] mQuotes){
+
+    public QuotesArrayAdapter(Context mContext, int resource, ArrayList<String> mAuthors, ArrayList<String> mQuotes){
         super(mContext, resource);
         this.mContext = mContext;
         this.mAuthors = mAuthors;
@@ -17,12 +21,12 @@ public class QuotesArrayAdapter extends ArrayAdapter {
     }
     @Override
         public Object getItem(int position){
-        String author = mAuthors[position];
-        String quote = mQuotes[position];
+        String author = mAuthors.get(position);
+        String quote = mQuotes.get(position);
             return String.format( "%S wrote \n %S", author, quote);
     }
     @Override
     public int getCount(){
-        return mAuthors.length;
+        return mAuthors.size();
     }
 }
