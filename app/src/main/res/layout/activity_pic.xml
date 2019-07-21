@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="110dp"
         android:layout_marginTop="43dp"
-        android:text="Programming 101"
-        android:textSize="24sp"
+        android:text="Picture story"
+        android:textSize="28sp"
         android:textStyle="bold" />
 
     <TextView
@@ -26,8 +26,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="104dp"
-        android:text="Click a  button to display  its photo"
-        android:textSize="18sp" />
+        android:text="Click a  button to display a story"
+        android:textSize="20sp" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -42,14 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Easy"
-            android:layout_marginLeft="10dp"
-            android:onClick="radioClick"/>
-
-        <RadioButton
-            android:id="@+id/outButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Out"
+            android:textSize="18sp"
             android:layout_marginLeft="10dp"
             android:onClick="radioClick"/>
         <RadioButton
@@ -57,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Semi"
+            android:textSize="18sp"
             android:layout_marginLeft="10dp"
             android:onClick="radioClick"/>
         <RadioButton
@@ -64,16 +58,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Team"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:onClick="radioClick"/>
+        <RadioButton
+            android:id="@+id/outButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Out"
+            android:textSize="18sp"
             android:layout_marginLeft="10dp"
             android:onClick="radioClick"/>
 
     </RadioGroup>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/images"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="150dp"
         app:srcCompat="@drawable/easy" />
 
 
