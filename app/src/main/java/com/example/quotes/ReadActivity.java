@@ -27,6 +27,8 @@ public class ReadActivity extends AppCompatActivity {
         authors.add("Gavin Russell Baker");
         quotes.add("If Java had true garbage collection, most programs would delete themselves upon execution.");
         quotes.add( "C++ : Where friends have access to your private members.");
+        mListView = (ListView) findViewById(R.id.listView);
+
 
 
         Intent addQuoteIntent = getIntent();
