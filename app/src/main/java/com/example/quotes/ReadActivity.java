@@ -12,8 +12,7 @@ import java.util.*;
 
 public class ReadActivity extends AppCompatActivity {
     private ListView mListView;
-    private TextView mNewAuthor;
-    private TextView mNewQuote;
+
 
     private ArrayList<String> authors = new ArrayList<String>();
     private ArrayList<String> quotes = new ArrayList<String>();
@@ -37,8 +36,6 @@ public class ReadActivity extends AppCompatActivity {
 
         QuotesArrayAdapter quotesArrayAdapter = new QuotesArrayAdapter(this, android.R.layout.simple_list_item_1, authors, quotes);
         mListView.setAdapter(quotesArrayAdapter);
-
-
 
     }
 }
