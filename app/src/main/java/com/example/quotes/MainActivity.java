@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         mAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent addIntent = new Intent(MainActivity.this, AddActivity);
+                Intent addIntent = new Intent(MainActivity.this, AddActivity.class);
                 startActivity(addIntent);
 
             }
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         mReadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent addIntent = new Intent(MainActivity.this, ReadActivity);
+                Intent addIntent = new Intent(MainActivity.this, ReadActivity.class);
                 startActivity(addIntent);
 
 
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mPicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent addIntent = new Intent(MainActivity.this, PicActivity);
+                Intent addIntent = new Intent(MainActivity.this, PicActivity.class);
                 startActivity(addIntent);
 
 
