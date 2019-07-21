@@ -17,7 +17,7 @@
         android:layout_marginLeft="159dp"
         android:layout_marginTop="241dp"
         android:text="Quotes"
-        android:textSize="30sp"
+        android:textSize="32sp"
         android:textStyle="bold" />
 
     <Button

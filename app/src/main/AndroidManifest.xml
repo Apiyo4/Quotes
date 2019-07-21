@@ -27,7 +27,7 @@
                 android:value="com.example.quotes.MainActivity">
             </meta-data>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
