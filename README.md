@@ -3,7 +3,7 @@
 ## Description
 This application allows a user to input and recordquotes and also read quotes and picture story. 
 ## Setup/Installation Requirements
-* Make sure you have all the Requirements of running Java Android apps installed such as JUnit, intellij, SDK, JDK.
+* Make sure you have all the Requirements of running Java Android apps installed such as JUnit,android studio.
 * Clone the project into your machine from https://github.com/apiyo4/Quotes .
 ## Specs
 * User clicks add quote button.
@@ -16,9 +16,9 @@ This application allows a user to input and recordquotes and also read quotes an
 ## Known Bugs
 No known bugs at this point.
 ## Technologies Used
-*Java.
-*Android
-*Junit.
+* Java.
+* Android.
+* Junit.
 ## Support and contact details
 In case of anything feel free to get in touch at odingoannette@gmail.com
 ### License
