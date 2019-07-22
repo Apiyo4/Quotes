@@ -23,10 +23,11 @@ public class QuotesArrayAdapter extends ArrayAdapter {
         public Object getItem(int position){
         String author = mAuthors.get(position);
         String quote = mQuotes.get(position);
-            return String.format( "\n %S WROTE %S\n ", author, quote);
+           return String.format( "\n %S WROTE %S\n ", author, quote);
+
     }
     @Override
     public int getCount(){
-        return mAuthors.size();
+     return mAuthors.size();
     }
 }

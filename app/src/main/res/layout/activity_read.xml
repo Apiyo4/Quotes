@@ -16,7 +16,7 @@
         android:layout_marginLeft="0dp"
         android:adjustViewBounds="true"
         android:layout_marginTop="0dp"
-        app:srcCompat="@drawable/back1" />
+        app:srcCompat="@drawable/blue7" />
 
     <TextView
         android:id="@+id/newAuthor"
