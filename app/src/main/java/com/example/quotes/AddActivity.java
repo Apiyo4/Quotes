@@ -7,19 +7,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class AddActivity extends AppCompatActivity {
-    private Button mAddQuoteButton;
-    private EditText mAuthor;
-    private EditText mQuote;
+
+    @BindView(R.id.quote) EditText mQuote;
+    @BindView(R.id.author) EditText mAuthor;
+    @BindView(R.id.addQuoteButton) Button mAddQuoteButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
-        mAuthor= (EditText) findViewById(R.id.author);
-        mQuote= (EditText) findViewById(R.id.quote);
-        mAddQuoteButton = (Button) findViewById(R.id.addQuoteButton);
+        ButterKnife.bind(this);
+
         mAddQuoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

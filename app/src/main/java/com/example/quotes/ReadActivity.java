@@ -5,14 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 
 import java.util.*;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class ReadActivity extends AppCompatActivity {
-    private ListView mListView;
+
+    @BindView(R.id.listView) ListView mListView;
 
 
     private ArrayList<String> authors = new ArrayList<String>();
@@ -23,13 +28,11 @@ public class ReadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read);
 
+        ButterKnife.bind(this);
         authors.add("Robert Sewell");
         authors.add("Gavin Russell Baker");
         quotes.add("If Java had true garbage collection, most programs would delete themselves upon execution.");
         quotes.add( "C++ : Where friends have access to your private members.");
-        mListView = (ListView) findViewById(R.id.listView);
-
-
 
         Intent addQuoteIntent = getIntent();
         String author = addQuoteIntent.getStringExtra("author");

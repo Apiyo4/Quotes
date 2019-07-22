@@ -6,18 +6,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
-    private  Button mAddButton;
-    private  Button mReadButton;
-    private  Button mPicButton;
+    @BindView(R.id.addButton) Button mAddButton;
+    @BindView(R.id.readButton) Button mReadButton;
+    @BindView(R.id.picButton) Button mPicButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mAddButton = (Button) findViewById(R.id.addButton);
+        ButterKnife.bind(this);
+
         mAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        mReadButton = (Button) findViewById(R.id.readButton);
+
         mReadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        mPicButton = (Button) findViewById(R.id.picButton);
+
         mPicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
