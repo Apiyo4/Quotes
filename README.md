@@ -1,7 +1,7 @@
 # Quotes
 #### By **Annette Odingo**
 ## Description
-This application allows a user to input and recordquotes and also read quotes and picture story. 
+This application allows a user to input and record quotes and also read quotes and picture story. 
 ## Setup/Installation Requirements
 * Make sure you have all the Requirements of running Java Android apps installed such as JUnit,android studio.
 * Clone the project into your machine from https://github.com/apiyo4/Quotes .
