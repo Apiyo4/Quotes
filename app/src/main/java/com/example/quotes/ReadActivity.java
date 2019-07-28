@@ -19,7 +19,6 @@ public class ReadActivity extends AppCompatActivity {
 
     @BindView(R.id.listView) ListView mListView;
 
-
     private ArrayList<String> authors = new ArrayList<String>();
     private ArrayList<String> quotes = new ArrayList<String>();
 

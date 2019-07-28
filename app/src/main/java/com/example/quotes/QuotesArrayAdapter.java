@@ -5,13 +5,10 @@ import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
-
 public class QuotesArrayAdapter extends ArrayAdapter {
     private Context mContext;
     private ArrayList<String> mAuthors = new ArrayList<String>();
     private ArrayList<String> mQuotes = new ArrayList<String>();
-
-
 
     public QuotesArrayAdapter(Context mContext, int resource, ArrayList<String> mAuthors, ArrayList<String> mQuotes){
         super(mContext, resource);
@@ -24,7 +21,6 @@ public class QuotesArrayAdapter extends ArrayAdapter {
         String author = mAuthors.get(position);
         String quote = mQuotes.get(position);
            return String.format( "\n %S WROTE %S\n ", author, quote);
-
     }
     @Override
     public int getCount(){

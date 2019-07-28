@@ -18,7 +18,6 @@ public class AddActivity extends AppCompatActivity {
     @BindView(R.id.author) EditText mAuthor;
     @BindView(R.id.addQuoteButton) Button mAddQuoteButton;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,10 +35,6 @@ public class AddActivity extends AppCompatActivity {
                 startActivity(addQuoteIntent);
             }
         });
-
-
-
-
 
     }
 }
