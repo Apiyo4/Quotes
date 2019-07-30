@@ -1,5 +1,5 @@
 
-package com.example.quotes;
+package com.example.quotes.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
