@@ -23,7 +23,7 @@ public class QuoteService {
                 .build();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.QUOTE_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.QUOTE_AUTHOR_QUERY_PARAMETER, id);
+        urlBuilder.addQueryParameter(Constants.QUOTE_AUTHOR_QUERY_PARAMETER, "author");
         String url = urlBuilder.build().toString();
 
         Request request = new Request.Builder()

@@ -18,32 +18,15 @@
         android:layout_marginTop="0dp"
         app:srcCompat="@drawable/blue7" />
 
-    <TextView
-        android:id="@+id/newAuthor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="19dp"
-        android:text=" "
-        android:textSize="24sp" />
-    <TextView
-        android:id="@+id/newQuote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text=" Quotes "
-        android:textStyle="bold"
-        android:textSize="28sp" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerView"/>
+    <!--<ListView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/listView"></ListView>-->
 
 
 </RelativeLayout>

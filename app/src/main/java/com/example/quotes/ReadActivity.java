@@ -1,6 +1,9 @@
 package com.example.quotes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -27,7 +30,10 @@ public class ReadActivity extends AppCompatActivity {
 
     public static final String TAG = ReadActivity.class.getSimpleName();
 
-    @BindView(R.id.listView) ListView mListView;
+
+//     @BindView(R.id.listView) ListView mListView;
+        @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+        private ReadListAdapter mAdapter;
 
 //    private ArrayList<String> authors = new ArrayList<String>();
 //    private ArrayList<String> quotes = new ArrayList<String>();
@@ -44,7 +50,7 @@ public class ReadActivity extends AppCompatActivity {
 //        quotes.add("If Java had true garbage collection, most programs would delete themselves upon execution.");
 //        quotes.add( "C++ : Where friends have access to your private members.");
 
-        Intent addQuoteIntent = getIntent();
+//        Intent addQuoteIntent = getIntent();
 //        String author = addQuoteIntent.getStringExtra("author");
 //        authors.add(author);
 //        String quote = addQuoteIntent.getStringExtra("quote");
@@ -89,18 +95,24 @@ public class ReadActivity extends AppCompatActivity {
                 ReadActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        String[] quoteQuotes = new String[mQuotes.size()];
-                        for(int i = 0; i< quoteQuotes.length; i++){
-                            quoteQuotes[i] = mQuotes.get(i).getQuote();
-                        }
-                        ArrayAdapter adapter = new ArrayAdapter(ReadActivity.this, android.R.layout.simple_list_item_1, quoteQuotes);
-                        mListView.setAdapter(adapter);
-                        for(Quote quote: mQuotes) {
-                            Log.d(TAG, "author:" + quote.getAuthor());
-                            Log.d(TAG, "id:" + quote.getId());
-                            Log.d(TAG, "quote:" + quote.getQuote());
-                            Log.d(TAG, "permalink:" + quote.getPermalink());
-                        }
+                        mAdapter = new ReadListAdapter(ReadActivity.this, mQuotes);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ReadActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
+
+//                        String[] quoteQuotes = new String[mQuotes.size()];
+//                        for(int i = 0; i< quoteQuotes.length; i++){
+//                            quoteQuotes[i] = mQuotes.get(i).getQuote();
+//                        }
+//                        ArrayAdapter adapter = new ArrayAdapter(ReadActivity.this, android.R.layout.simple_list_item_1, quoteQuotes);
+//                        mListView.setAdapter(adapter);
+//                        for(Quote quote: mQuotes) {
+//                            Log.d(TAG, "author:" + quote.getAuthor());
+//                            Log.d(TAG, "id:" + quote.getId());
+//                            Log.d(TAG, "quote:" + quote.getQuote());
+//                            Log.d(TAG, "permalink:" + quote.getPermalink());
+//                        }
                     }
                 });
                     }

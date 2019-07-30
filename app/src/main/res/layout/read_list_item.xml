@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
+        android:id="@+id/restaurantImageView"
         android:layout_width="130dp"
         android:layout_height="100dp"
-        android:id="@+id/restaurantImageView"
-        android:src="@drawable/back1"
-        android:scaleType="centerCrop"/>
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="5dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back1" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -24,15 +31,15 @@
             android:id="@+id/authorTextView"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:text="Author"
+            android:text="Author: "
             android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quote"
+            android:text=" Quote : "
             android:id="@+id/quoteTextView"
-            android:layout_below="@+id/authorTextView"
+            android:layout_below="@+id/quoteTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textStyle="italic"/>
@@ -44,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Id"
+                android:text="Id : "
                 android:id="@+id/idTextView"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
