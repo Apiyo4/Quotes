@@ -1,10 +1,14 @@
 package com.example.quotes;
 
+import android.content.ClipData;
 import android.view.View;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import butterknife.BindView;
+
 public class ItemClickSupport {
+
     private final RecyclerView mRecyclerView;
     private OnItemClickListener mOnItemClickListener;
     private OnItemLongClickListener mOnItemLongClickListener;

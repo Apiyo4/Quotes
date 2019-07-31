@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,12 +20,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ReadListAdapter extends RecyclerView.Adapter<ReadListAdapter.ReadViewHolder> {
-    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
-    private ReadListAdapter mAdapter;
 
     private ArrayList<Quote> mQuotes = new ArrayList<Quote>();
     private Context mContext;
-    private int position;
     public ReadListAdapter(Context context, ArrayList<Quote> quotes){
         mContext = context;
         mQuotes = quotes;
@@ -36,12 +34,12 @@ public class ReadListAdapter extends RecyclerView.Adapter<ReadListAdapter.ReadVi
         View view = LayoutInflater.from(mContext).inflate(R.layout.read_list_item, parent, false);
         ReadViewHolder viewHolder = new ReadViewHolder(view);
         return viewHolder;
+
+
     }
     @Override
-        public void onBindViewHolder(ReadListAdapter.ReadViewHolder holder, int position){
-        this.position=position;
+    public void onBindViewHolder(ReadListAdapter.ReadViewHolder holder, int position) {
         holder.bindRead(mQuotes.get(position));
-
     }
 
     @Override
@@ -49,23 +47,28 @@ public class ReadListAdapter extends RecyclerView.Adapter<ReadListAdapter.ReadVi
         return mQuotes.size();
     }
 
-    public class ReadViewHolder extends RecyclerView.ViewHolder{
+    public class ReadViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.authorTextView) TextView mAuthorTextView;
         @BindView(R.id.quoteTextView) TextView mQuoteTextView;
-        @BindView(R.id.idTextView) TextView mIdTextView;
+        @BindView(R.id.shareButton)  Button mShareButton;
         private Context mContext;
+        Quote mQuote;
 
         public ReadViewHolder(View itemView){
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            mShareButton.setOnClickListener(this);
 
-            ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
-                @Override
-                public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                    // do it
-                }
-            });
+//            ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+//                @Override
+//                public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+//                    // do it
+//                    Toast.makeText(itemView.getContext(), "hi", Toast.LENGTH_LONG).show();
+//                }
+//            });
+
+
         }
 
 
@@ -91,10 +94,18 @@ public class ReadListAdapter extends RecyclerView.Adapter<ReadListAdapter.ReadVi
 //            });
 //        }
         public void bindRead(Quote quote){
+            mQuote = quote;
             mAuthorTextView.setText(quote.getAuthor());
             mQuoteTextView.setText(quote.getQuote());
-            mIdTextView.setText(quote.getId().toString());
+
+
+        }
+
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(mContext, mQuote.getAuthor(), Toast.LENGTH_SHORT).show();
         }
     }
+
 
 }

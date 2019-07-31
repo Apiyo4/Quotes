@@ -103,12 +103,12 @@ public class ReadActivity extends AppCompatActivity {
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ReadActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
-                        mRecyclerView.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Toast.makeText(ReadActivity.this,"Hi",Toast.LENGTH_LONG).show();
-                            }
-                        });
+//                        mRecyclerView.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                Toast.makeText(ReadActivity.this,"Hi",Toast.LENGTH_LONG).show();
+//                            }
+//                        });
 //                        String[] quoteQuotes = new String[mQuotes.size()];
 //                        for(int i = 0; i< quoteQuotes.length; i++){
 //                            quoteQuotes[i] = mQuotes.get(i).getQuote();

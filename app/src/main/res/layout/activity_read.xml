@@ -5,19 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ReadActivity">
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:adjustViewBounds="true"
-        android:layout_marginTop="0dp"
-        app:srcCompat="@drawable/blue7" />
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
