@@ -9,10 +9,12 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.quotes.models.Quote;
@@ -45,6 +47,7 @@ public class ReadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_read);
 
         ButterKnife.bind(this);
+
 //        authors.add("Robert Sewell");
 //        authors.add("Gavin Russell Baker");
 //        quotes.add("If Java had true garbage collection, most programs would delete themselves upon execution.");
@@ -100,7 +103,12 @@ public class ReadActivity extends AppCompatActivity {
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ReadActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
-
+                        mRecyclerView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(ReadActivity.this,"Hi",Toast.LENGTH_LONG).show();
+                            }
+                        });
 //                        String[] quoteQuotes = new String[mQuotes.size()];
 //                        for(int i = 0; i< quoteQuotes.length; i++){
 //                            quoteQuotes[i] = mQuotes.get(i).getQuote();
