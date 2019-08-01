@@ -1,6 +1,8 @@
 package com.example.quotes;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -104,6 +106,9 @@ public class ReadListAdapter extends RecyclerView.Adapter<ReadListAdapter.ReadVi
         @Override
         public void onClick(View view) {
             Toast.makeText(mContext, mQuote.getAuthor(), Toast.LENGTH_SHORT).show();
+//            Intent sendIntent = new Intent(Intent.ACTION_SEND, Uri.parse(mQuote.getQuote()));
+//             mContext.startActivity(sendIntent);
+
         }
     }
 
