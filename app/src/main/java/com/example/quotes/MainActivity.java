@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 String author = mAuthorEditText.getText().toString();
                 if(!(author).equals("")) {
                     addToSharedPreferences(author);
-                }
+                  }
                 Intent addIntent = new Intent(MainActivity.this, ReadActivity.class);
                 startActivity(addIntent);
 
