@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
-
         mEditor = mSharedPreferences.edit();
 
         mAddButton.setOnClickListener(new View.OnClickListener() {
