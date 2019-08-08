@@ -33,7 +33,7 @@ import okhttp3.Response;
 public class ReadActivity extends AppCompatActivity {
 
     public static final String TAG = ReadActivity.class.getSimpleName();
-    private SharedPreferences mSharedPreferences;
+//    private SharedPreferences mSharedPreferences;
     private String mRecentName;
 
 
@@ -66,8 +66,8 @@ public class ReadActivity extends AppCompatActivity {
 //        QuotesArrayAdapter quotesArrayAdapter = new QuotesArrayAdapter(this, android.R.layout.simple_list_item_1, authors, quotes);
 //        mListView.setAdapter(quotesArrayAdapter);
         getQuotes("author");
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mRecentName = mSharedPreferences.getString(Constants.PREFERENCES_AUTHOR_KEY, null);
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentName = mSharedPreferences.getString(Constants.PREFERENCES_AUTHOR_KEY, null);
 //        Log.d("Shared Pref Location", mRecentName);
         if (mRecentName != null) {
             getQuotes(mRecentName);
