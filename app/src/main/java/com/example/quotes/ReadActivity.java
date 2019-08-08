@@ -69,9 +69,9 @@ public class ReadActivity extends AppCompatActivity {
 //        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 //        mRecentName = mSharedPreferences.getString(Constants.PREFERENCES_AUTHOR_KEY, null);
 //        Log.d("Shared Pref Location", mRecentName);
-        if (mRecentName != null) {
-            getQuotes(mRecentName);
-        }
+//        if (mRecentName != null) {
+//            getQuotes(mRecentName);
+//        }
     }
 
     private void getQuotes(String author) {
