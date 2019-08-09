@@ -12,10 +12,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="-7dp"
+        android:layout_marginLeft="-7dp"
+        android:layout_marginTop="-22dp"
         android:adjustViewBounds="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
         app:srcCompat="@drawable/blue7" />
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="159dp"
-        android:layout_marginTop="241dp"
+        android:layout_marginTop="200dp"
         android:text="Quotes"
         android:textSize="32sp"
         android:textStyle="bold" />
@@ -32,8 +32,8 @@
         android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="420dp"
         android:text="Add a quote"
         android:textSize="18sp" />
 
@@ -42,8 +42,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="137dp"
-        android:layout_marginTop="360dp"
-        android:text="Read quotes"
+        android:layout_marginTop="300dp"
+        android:text="Search Author"
         android:textSize="18sp" />
 
     <Button
@@ -52,9 +52,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="360dp"
         android:text="Picture story"
         android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/authorEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="252dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginRight="109dp"
+        android:hint="Enter author's name"
+        android:text=""/>
 
 </RelativeLayout>

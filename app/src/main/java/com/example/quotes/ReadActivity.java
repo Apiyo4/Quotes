@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -31,6 +33,8 @@ import okhttp3.Response;
 public class ReadActivity extends AppCompatActivity {
 
     public static final String TAG = ReadActivity.class.getSimpleName();
+//    private SharedPreferences mSharedPreferences;
+    private String mRecentName;
 
 
 //     @BindView(R.id.listView) ListView mListView;
@@ -62,6 +66,12 @@ public class ReadActivity extends AppCompatActivity {
 //        QuotesArrayAdapter quotesArrayAdapter = new QuotesArrayAdapter(this, android.R.layout.simple_list_item_1, authors, quotes);
 //        mListView.setAdapter(quotesArrayAdapter);
         getQuotes("author");
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentName = mSharedPreferences.getString(Constants.PREFERENCES_AUTHOR_KEY, null);
+//        Log.d("Shared Pref Location", mRecentName);
+//        if (mRecentName != null) {
+//            getQuotes(mRecentName);
+//        }
     }
 
     private void getQuotes(String author) {
