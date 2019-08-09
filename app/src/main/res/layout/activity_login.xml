@@ -51,17 +51,16 @@
             android:background="@color/colorAccent"
             android:layout_marginTop="15dp"
             android:textColor="@color/colorTextIcons" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textColor="@color/colorTextIcons"
             android:textStyle="bold"
             android:textSize="15sp"
             android:text="Don't have an account? Sign up here!"
             android:id="@+id/registerTextView"
             android:layout_gravity="center_horizontal" />
+
 
     </LinearLayout>
 
@@ -74,5 +73,6 @@
         android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>
