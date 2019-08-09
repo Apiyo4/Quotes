@@ -25,6 +25,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 //    private SharedPreferences mSharedPreferences;
 //    private SharedPreferences.Editor mEditor;
+      private ValueEventListener mSearchedAuthorReferenceListener;
       private DatabaseReference mSearchedAuthorReference;
     @BindView(R.id.addButton) Button mAddButton;
     @BindView(R.id.readButton) Button mReadButton;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 .getInstance()
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_SEARCHED_AUTHOR);
-        mSearchedAuthorReference.addValueEventListener(new ValueEventListener() {
+        mSearchedAuthorReferenceListener = mSearchedAuthorReference.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -51,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
+       });
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -86,9 +88,15 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
+
             public void saveAuthorToFirebase(String author) {
                 mSearchedAuthorReference.push().setValue(author);
             }
+
+
+
+
+
 //            private void addToSharedPreferences(String author) {
 //                mEditor.putString(Constants.PREFERENCES_AUTHOR_KEY, author).apply();
 //
@@ -103,6 +111,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mSearchedAuthorReference.removeEventListener(mSearchedAuthorReferenceListener);
     }
 }
+
+
