@@ -3,6 +3,7 @@ package com.example.quotes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +30,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.registerTextView) TextView mRegisterTextView;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ProgressDialog mAuthProgressDialog;
 
 
     @Override
@@ -38,6 +40,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         ButterKnife.bind(this);
         mAuth = FirebaseAuth.getInstance();
+        createAuthProgressDialog();
         mRegisterTextView.setOnClickListener(this);
         mPasswordLoginButton.setOnClickListener(this);
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -54,7 +57,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         };
 
+
     }
+
     @Override
     public void onClick(View view) {
         if (view == mRegisterTextView) {
@@ -67,22 +72,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
     }
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+        mAuthProgressDialog.setCancelable(false);
+    }
     private void loginWithPassword() {
         String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
-        if (email.equals("")) {
-            mEmailEditText.setError("Please enter your email");
-            return;
-        }
         if (password.equals("")) {
             mPasswordEditText.setError("Password cannot be blank");
             return;
         }
+        mAuthProgressDialog.show();
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        mAuthProgressDialog.dismiss();
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithEmail", task.getException());
