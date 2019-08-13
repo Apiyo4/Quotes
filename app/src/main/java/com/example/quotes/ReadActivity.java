@@ -1,6 +1,7 @@
 package com.example.quotes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,7 +34,7 @@ import okhttp3.Response;
 public class ReadActivity extends AppCompatActivity {
 
     public static final String TAG = ReadActivity.class.getSimpleName();
-//    private SharedPreferences mSharedPreferences;
+    private SharedPreferences mSharedPreferences;
     private String mRecentName;
 
 
@@ -137,4 +138,6 @@ public class ReadActivity extends AppCompatActivity {
 
                 });
             }
+
+
 }

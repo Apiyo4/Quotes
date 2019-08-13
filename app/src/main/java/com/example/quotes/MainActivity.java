@@ -29,8 +29,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-//    private SharedPreferences mSharedPreferences;
-//    private SharedPreferences.Editor mEditor;
+      private SharedPreferences mSharedPreferences;
+      private SharedPreferences.Editor mEditor;
       private ValueEventListener mSearchedAuthorReferenceListener;
       private DatabaseReference mSearchedAuthorReference;
     @BindView(R.id.addButton) Button mAddButton;
@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override

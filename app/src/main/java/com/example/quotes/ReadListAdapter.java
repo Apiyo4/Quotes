@@ -113,4 +113,5 @@ public class ReadListAdapter extends RecyclerView.Adapter<ReadListAdapter.ReadVi
     }
 
 
+
 }
