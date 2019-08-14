@@ -29,6 +29,6 @@ public class ReadPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position){
-        return mQuotes.get(position).getQuote();
+        return mQuotes.get(position).getAuthor();
     }
 }
