@@ -8,18 +8,19 @@ import org.parceler.Parcel;
 @Parcel
 public class Quote {
 
-    @SerializedName("author")
-    @Expose
+//    @SerializedName("author")
+//    @Expose
     private String author;
-    @SerializedName("id")
-    @Expose
+//    @SerializedName("id")
+//    @Expose
     private Integer id;
-    @SerializedName("quote")
-    @Expose
+//    @SerializedName("quote")
+//    @Expose
     private String quote;
-    @SerializedName("permalink")
-    @Expose
+//    @SerializedName("permalink")
+//    @Expose
     private String permalink;
+    private String pushId;
 
     /**
      * No args constructor for use in serialization
@@ -73,6 +74,13 @@ public class Quote {
 
     public void setPermalink(String permalink) {
         this.permalink = permalink;
+    }
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
 }

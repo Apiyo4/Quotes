@@ -36,12 +36,11 @@ public class FirebaseReadViewHolder extends RecyclerView.ViewHolder implements V
 
         TextView mAuthor= (TextView) mView.findViewById(R.id.authorTextView);
         TextView mQuoteTextView= (TextView) mView.findViewById(R.id.quoteTextView);
-        TextView mId= (TextView) mView.findViewById(R.id.idTextView);
+//        TextView mId= (TextView) mView.findViewById(R.id.idTextView);
 
 
         mAuthor.setText(quote.getAuthor());
         mQuoteTextView.setText(quote.getQuote());
-        mId.setText(Integer.toString(quote.getId()));
 
     }
 

@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.quotes.models.Quote;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -59,10 +61,19 @@ public class ReadDetailFragment extends Fragment implements View.OnClickListener
     public void onClick(View v) {
 
         if (v == mSaveQuoteButton) {
-            DatabaseReference restaurantRef = FirebaseDatabase
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
+            DatabaseReference readRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_QUOTES);
-            restaurantRef.push().setValue(mQuote);
+                    .getReference(Constants.FIREBASE_CHILD_QUOTES)
+                    .child(uid);
+
+            DatabaseReference pushRef = readRef.push();
+            String pushId = pushRef.getKey();
+            mQuote.setPushId(pushId);
+            pushRef.setValue(mQuote);
+
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }

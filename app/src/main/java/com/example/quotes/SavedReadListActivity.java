@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import com.example.quotes.models.Quote;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,8 +35,13 @@ public class SavedReadListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read);
         ButterKnife.bind(this);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
 
-        mReadReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_QUOTES);
+        mReadReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_QUOTES)
+                .child(uid);
         setUpFirebaseAdapter();
     }
 
