@@ -10,15 +10,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.quotes.models.Quote;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.parceler.Parcels;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ReadDetailFragment extends Fragment  {
+public class ReadDetailFragment extends Fragment implements View.OnClickListener  {
     @BindView(R.id.authorTextView) TextView mAuthor;
     @BindView(R.id.quoteTextView) TextView mQuoteTextView;
     @BindView(R.id.idTextView) TextView mId;
@@ -48,7 +51,20 @@ public class ReadDetailFragment extends Fragment  {
         mAuthor.setText(mQuote.getAuthor());
         mQuoteTextView.setText(mQuote.getQuote());
         mId.setText(Integer.toString(mQuote.getId()));
+
+        mSaveQuoteButton.setOnClickListener(this);
         return view;
+    }
+    @Override
+    public void onClick(View v) {
+
+        if (v == mSaveQuoteButton) {
+            DatabaseReference restaurantRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_QUOTES);
+            restaurantRef.push().setValue(mQuote);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
