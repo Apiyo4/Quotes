@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.quotes.models.Quote;
 import com.squareup.picasso.Picasso;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -60,7 +62,7 @@ public class ReadListAdapter extends RecyclerView.Adapter<ReadListAdapter.ReadVi
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
-            mShareButton.setOnClickListener(this);
+            itemView.setOnClickListener(this);
 
 //            ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
 //                @Override
@@ -105,7 +107,12 @@ public class ReadListAdapter extends RecyclerView.Adapter<ReadListAdapter.ReadVi
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(mContext, mQuote.getAuthor(), Toast.LENGTH_SHORT).show();
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, ReadDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("quotes", Parcels.wrap(mQuotes));
+            mContext.startActivity(intent);
+//            Toast.makeText(mContext, mQuote.getAuthor(), Toast.LENGTH_SHORT).show();
 //            Intent sendIntent = new Intent(Intent.ACTION_SEND, Uri.parse(mQuote.getQuote()));
 //             mContext.startActivity(sendIntent);
 
