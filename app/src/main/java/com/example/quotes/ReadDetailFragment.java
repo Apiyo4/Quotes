@@ -52,7 +52,7 @@ public class ReadDetailFragment extends Fragment implements View.OnClickListener
         ButterKnife.bind(this, view);
         mAuthor.setText(mQuote.getAuthor());
         mQuoteTextView.setText(mQuote.getQuote());
-        mId.setText(Integer.toString(mQuote.getId()));
+//        mId.setText(Integer.toString(mQuote.getId()));
 
         mSaveQuoteButton.setOnClickListener(this);
         return view;

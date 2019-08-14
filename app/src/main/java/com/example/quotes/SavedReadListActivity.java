@@ -60,7 +60,7 @@ public class SavedReadListActivity extends AppCompatActivity {
             @NonNull
             @Override
             public FirebaseReadViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.read_list_item, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.read_list_item_drag, parent, false);
                 return new FirebaseReadViewHolder(view);
             }
         };
