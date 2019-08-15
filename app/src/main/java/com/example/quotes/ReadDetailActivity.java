@@ -26,7 +26,6 @@ public class ReadDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_detail);
-
         ButterKnife.bind(this);
 
         mQuotes = Parcels.unwrap(getIntent().getParcelableExtra("quotes"));

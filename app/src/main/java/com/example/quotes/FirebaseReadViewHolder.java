@@ -22,8 +22,10 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseReadViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseReadViewHolder extends RecyclerView.ViewHolder {
 
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
     View mView;
     Context mContext;
     public TextView mQuoteTextView;
@@ -33,47 +35,18 @@ public class FirebaseReadViewHolder extends RecyclerView.ViewHolder implements V
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
+
     }
 
     public void bindQuote(Quote quote) {
 
         mAuthor= (TextView) mView.findViewById(R.id.authorTextView);
         mQuoteTextView= (TextView) mView.findViewById(R.id.quoteTextView);
-//        TextView mId= (TextView) mView.findViewById(R.id.idTextView);
+
 
 
         mAuthor.setText(quote.getAuthor());
         mQuoteTextView.setText(quote.getQuote());
 
-    }
-
-    @Override
-    public void onClick(View view) {
-        final ArrayList<Quote> quotes = new ArrayList<>();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_QUOTES);
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    quotes.add(snapshot.getValue(Quote.class));
-                }
-
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, ReadDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("quotes", Parcels.wrap(quotes));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
     }
 }

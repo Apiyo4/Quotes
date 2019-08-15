@@ -63,40 +63,7 @@ public class ReadListAdapter extends RecyclerView.Adapter<ReadListAdapter.ReadVi
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
-
-//            ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
-//                @Override
-//                public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-//                    // do it
-//                    Toast.makeText(itemView.getContext(), "hi", Toast.LENGTH_LONG).show();
-//                }
-//            });
-
-
         }
-
-
-        //    public void bind(final ReadActivity item, final AdapterView.OnItemClickListener listener) {
-//        name.setText(item.name);
-//
-//        itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onItemClick(View v) {
-//                listener.onItemClick()
-//            }
-//        });
-//    };
-//        public void bindRead(Quote quote, AdapterView.OnItemClickListener listener){
-//            mAuthorTextView.setText(quote.getAuthor());
-//            mQuoteTextView.setText(quote.getQuote());
-//            mIdTextView.setText(quote.getId().toString());
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Toast.makeText(itemView.getContext(), "Hi", Toast.LENGTH_LONG).show();
-//                }
-//            });
-//        }
         public void bindRead(Quote quote){
             mQuote = quote;
             mAuthorTextView.setText(quote.getAuthor());
@@ -112,10 +79,6 @@ public class ReadListAdapter extends RecyclerView.Adapter<ReadListAdapter.ReadVi
             intent.putExtra("position", itemPosition);
             intent.putExtra("quotes", Parcels.wrap(mQuotes));
             mContext.startActivity(intent);
-//            Toast.makeText(mContext, mQuote.getAuthor(), Toast.LENGTH_SHORT).show();
-//            Intent sendIntent = new Intent(Intent.ACTION_SEND, Uri.parse(mQuote.getQuote()));
-//             mContext.startActivity(sendIntent);
-
         }
     }
 
