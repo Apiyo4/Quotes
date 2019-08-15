@@ -6,10 +6,12 @@ import android.view.View;
 import android.widget.TextView;
 
 
-
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quotes.models.Quote;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +26,8 @@ public class FirebaseReadViewHolder extends RecyclerView.ViewHolder implements V
 
     View mView;
     Context mContext;
+    public TextView mQuoteTextView;
+    public TextView mAuthor;
 
     public FirebaseReadViewHolder(View itemView) {
         super(itemView);
@@ -34,8 +38,8 @@ public class FirebaseReadViewHolder extends RecyclerView.ViewHolder implements V
 
     public void bindQuote(Quote quote) {
 
-        TextView mAuthor= (TextView) mView.findViewById(R.id.authorTextView);
-        TextView mQuoteTextView= (TextView) mView.findViewById(R.id.quoteTextView);
+        mAuthor= (TextView) mView.findViewById(R.id.authorTextView);
+        mQuoteTextView= (TextView) mView.findViewById(R.id.quoteTextView);
 //        TextView mId= (TextView) mView.findViewById(R.id.idTextView);
 
 
@@ -47,6 +51,8 @@ public class FirebaseReadViewHolder extends RecyclerView.ViewHolder implements V
     @Override
     public void onClick(View view) {
         final ArrayList<Quote> quotes = new ArrayList<>();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_QUOTES);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
@@ -66,7 +72,7 @@ public class FirebaseReadViewHolder extends RecyclerView.ViewHolder implements V
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }

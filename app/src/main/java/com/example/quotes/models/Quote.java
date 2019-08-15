@@ -21,6 +21,7 @@ public class Quote {
 //    @Expose
     private String permalink;
     private String pushId;
+    String index;
 
     /**
      * No args constructor for use in serialization
@@ -42,6 +43,7 @@ public class Quote {
         this.id = id;
         this.quote = quote;
         this.permalink = permalink;
+        this.index = "not_specified";
     }
 
     public String getAuthor() {
@@ -81,6 +83,13 @@ public class Quote {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
 }
