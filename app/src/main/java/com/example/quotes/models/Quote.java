@@ -3,21 +3,25 @@ package com.example.quotes.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.parceler.Parcel;
 
+@Parcel
 public class Quote {
 
-    @SerializedName("author")
-    @Expose
+//    @SerializedName("author")
+//    @Expose
     private String author;
-    @SerializedName("id")
-    @Expose
+//    @SerializedName("id")
+//    @Expose
     private Integer id;
-    @SerializedName("quote")
-    @Expose
+//    @SerializedName("quote")
+//    @Expose
     private String quote;
-    @SerializedName("permalink")
-    @Expose
+//    @SerializedName("permalink")
+//    @Expose
     private String permalink;
+    private String pushId;
+    String index;
 
     /**
      * No args constructor for use in serialization
@@ -39,6 +43,7 @@ public class Quote {
         this.id = id;
         this.quote = quote;
         this.permalink = permalink;
+        this.index = "not_specified";
     }
 
     public String getAuthor() {
@@ -71,6 +76,20 @@ public class Quote {
 
     public void setPermalink(String permalink) {
         this.permalink = permalink;
+    }
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
 }

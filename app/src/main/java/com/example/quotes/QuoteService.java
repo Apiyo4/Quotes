@@ -50,25 +50,6 @@ public class QuoteService {
                 quotes.add(newQuote);
             }
 
-//          String data = response.body().string();
-//            JSONObject dataJson = new JSONObject(data);
-//            String author = dataJson.getString("author");
-//            String quote = dataJson.getString("quote");
-//            String permalink = dataJson.getString("permalink");
-//            int id = dataJson.getInt("id");
-
-//            if (response.isSuccessful()) {
-//                String author = dataJson.getString("author");
-//                String quote = dataJson.getString("quote");
-//                String permalink = dataJson.getString("permalink");
-//                int id = dataJson.getInt("id");
-
-
-//                Quote quote1 = new Quote(author, id, quote, permalink);
-//                quotes.add(quote1);
-//            }
-
-
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (IOException e) {

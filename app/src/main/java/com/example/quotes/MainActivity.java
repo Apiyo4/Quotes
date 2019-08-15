@@ -29,16 +29,18 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-//    private SharedPreferences mSharedPreferences;
-//    private SharedPreferences.Editor mEditor;
+      private SharedPreferences mSharedPreferences;
+      private SharedPreferences.Editor mEditor;
       private ValueEventListener mSearchedAuthorReferenceListener;
       private DatabaseReference mSearchedAuthorReference;
     @BindView(R.id.addButton) Button mAddButton;
     @BindView(R.id.readButton) Button mReadButton;
     @BindView(R.id.picButton) Button mPicButton;
     @BindView(R.id.authorEditText) EditText mAuthorEditText;
+    @BindView(R.id.savedQuotesButton) Button mSavedQuotesButton;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 .getInstance()
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_SEARCHED_AUTHOR);
+
         mSearchedAuthorReferenceListener = mSearchedAuthorReference.addValueEventListener(new ValueEventListener() {
 
             @Override
@@ -67,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -111,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+
             public void saveAuthorToFirebase(String author) {
                 mSearchedAuthorReference.push().setValue(author);
             }
@@ -124,6 +128,16 @@ public class MainActivity extends AppCompatActivity {
 //
 //            }
    });
+        mSavedQuotesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view == mSavedQuotesButton) {
+                    Intent intent = new Intent(MainActivity.this, SavedReadListActivity.class);
+                    startActivity(intent);
+                }
+            }
+
+        });
 
         mPicButton.setOnClickListener(new View.OnClickListener() {
             @Override
